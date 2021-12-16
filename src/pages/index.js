@@ -7,22 +7,16 @@ export default function Home({ data }) {
   return <Layout>
     <SEO />
     <div>
-      {data.allMarkdownRemark.edges.map(({ node }) => (
-        <div key={node.id} style={{ marginBottom: '0.5rem' }}>
-          <Link
-            to={node.fields.slug}>
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              <div>
-                <h2 style={{ marginBottom: '0.5rem' }}>
-                  {node.frontmatter.title}{" "}
-                  <span style={{ fontSize: '0.9rem', marginLeft: '1rem' }}>
-                    [{node.frontmatter.date}]
-                  </span>
-                </h2>
-                <p>{node.excerpt}</p>
-              </div>
-            </div>
-          </Link>
+      {data.allMarkdownRemark.edges.map(({ node }, idx) => (
+        <div key={node.id} style={{ margin: "1.5rem 0 0.5rem", display: "flex" }}>
+          <p style={{margin: "0 1rem 0", fontWeight: "500"}}>
+            [{data.allMarkdownRemark.edges.length - idx}]
+          </p>
+          <p>
+            {node.frontmatter.title}{". "}
+            <i>In {node.frontmatter.conference}{". "}</i>
+            {node.frontmatter.date}.
+          </p>
         </div>
       ))}
     </div>
@@ -36,7 +30,8 @@ export const query = graphql`
         node {
           id
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
+            date(formatString: "YYYY")
+            conference
             title
           }
           excerpt

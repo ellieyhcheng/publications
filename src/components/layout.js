@@ -34,22 +34,19 @@ export default function Layout({ children, data }) {
           </div>
         ))
       ) : (
-          otherLinks.map(({ name, link }, i) => (
-            <div key={i} className={layoutStyles.menuLink}>
-              <a href={link}>{name}</a>
-            </div>
-          ))
-        )}
+        otherLinks.map(({ name, link }, i) => (
+          <div key={i} className={layoutStyles.menuLink}>
+            <a href={link}>{name}</a>
+          </div>
+        ))
+      )}
     </div>
     <div className={layoutStyles.content}>
       <div className={layoutStyles.header}>
         <div className={layoutStyles.title}>
-          <Link to='/'>
-            <h1>cæsura</h1>
-          </Link>
-          <h2>[suh·zyur·ah]</h2>
+          <h1>Publications</h1>
+          <a href="https://scholar.google.com/citations?user=U2vMTgIAAAAJ"><h2>[Google Scholar]</h2></a>
         </div>
-        <p className={layoutStyles.subtitle}>... writing words to let them go</p>
       </div>
       <hr />
       <div className={layoutStyles.text}>

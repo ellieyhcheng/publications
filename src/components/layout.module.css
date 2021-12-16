@@ -79,10 +79,6 @@
   margin: 0;
 }
 
-.text p {
-  -webkit-user-select: none;
-  -webkit-touch-callout: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+a:hover {
+  color: var(--primary);
 }
