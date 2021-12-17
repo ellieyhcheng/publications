@@ -20,6 +20,11 @@
   color: var(--light);
 }
 
+.menuLinkWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 .menuLink {
   font-size: 1.2rem;
   letter-spacing: 0.08rem;
@@ -81,4 +86,59 @@
 
 a:hover {
   color: var(--primary);
+}
+
+@media only screen and (max-width: 1023px) {
+  .sidebar {
+    width: 100%;
+    background: var(--dark);
+    color: var(--light);
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 1.2rem 2rem 1rem;
+    top: 0;
+    box-sizing: border-box;
+    text-align: left;
+  }
+
+  .sidebar hr {
+    display: none;
+  }
+
+  .sidebar h1 {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+
+  .menuLinkWrapper {
+    flex-direction: row;
+  }
+  
+  .menuLink {
+    margin: 0 0.3rem;
+    font-size: 1rem;
+  }
+
+  .content {
+    position: relative;
+    left: 0;
+    width: 100%;
+    padding: 1rem 2rem 1rem;
+  }
+
+  .content h1 {
+    font-size: 1.5rem;
+  }
+
+  .content h2 {
+    font-size: 1rem;
+    margin-right: 0;
+  }
+
+  .content p {
+    font-size: 1rem;
+  }
 }

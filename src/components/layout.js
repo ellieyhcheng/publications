@@ -25,21 +25,23 @@ export default function Layout({ children, data }) {
         <a href="https://ellieyhcheng.github.io/">Ellie Cheng</a>
       </h1>
       <hr />
-      {data ? (
-        data && data.allMarkdownRemark.edges.map(({ node }) => (
-          <div key={node.id} className={layoutStyles.menuLink}>
-            <Link to={node.fields.slug}>
-              <p>{node.frontmatter.title}</p>
-            </Link>
-          </div>
-        ))
-      ) : (
-        otherLinks.map(({ name, link }, i) => (
-          <div key={i} className={layoutStyles.menuLink}>
-            <a href={link}>{name}</a>
-          </div>
-        ))
-      )}
+      <div className={layoutStyles.menuLinkWrapper}>
+        {data ? (
+          data && data.allMarkdownRemark.edges.map(({ node }) => (
+            <div key={node.id} className={layoutStyles.menuLink}>
+              <Link to={node.fields.slug}>
+                <p>{node.frontmatter.title}</p>
+              </Link>
+            </div>
+          ))
+        ) : (
+          otherLinks.map(({ name, link }, i) => (
+            <div key={i} className={layoutStyles.menuLink}>
+              <a href={link}>{name}</a>
+            </div>
+          ))
+        )}
+      </div>
     </div>
     <div className={layoutStyles.content}>
       <div className={layoutStyles.header}>
