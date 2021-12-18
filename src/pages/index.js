@@ -16,21 +16,27 @@ const getAuthor = authors => {
 export default function Home({ data }) {
   return <Layout>
     <SEO />
-    <div>
+    <div style={{ padding: "0.5rem 0 0"}}>
       {data.allMarkdownRemark.edges.map(({ node }, idx) => (
-        <div key={node.id} style={{ margin: "1.5rem 0 0.5rem", display: "flex" }}>
-          <p style={{ margin: "0 1rem 0", fontWeight: "500" }}>
-            [{data.allMarkdownRemark.edges.length - idx}]
-          </p>
-          <p>
-            <a href={withPrefix(node.frontmatter.file.publicURL)} className="highlight" download>
-              {node.frontmatter.title}
-            </a>
-            {". "}
-            {getAuthor(node.frontmatter.author)}{". "}
-            <i>In {node.frontmatter.conference}{". "}</i>
-            {node.frontmatter.date}.
-          </p>
+        <div key={node.id} style={{ margin: "1rem 0 0", display: "flex" }}>
+            <p style={{ margin: "0 1rem 0", fontWeight: "500" }}>
+              [{data.allMarkdownRemark.edges.length - idx}]
+            </p>
+            <div style={{ maxWidth: "calc(100% - 4rem)" }}>
+              <p>
+                <a href={withPrefix(node.frontmatter.file.publicURL)} className="highlight" download>
+                  {node.frontmatter.title}
+                </a>
+                {". "}
+                {getAuthor(node.frontmatter.author)}{". "}
+                <i>In {node.frontmatter.conference}{". "}</i>
+                {node.frontmatter.date}.
+              </p>
+            <details>
+              <summary>BibTex</summary>
+              <div dangerouslySetInnerHTML={{ __html: node.html }}  />
+            </details>
+          </div>
         </div>
       ))}
     </div>
@@ -52,7 +58,7 @@ export const query = graphql`
             author
             title
           }
-          excerpt
+          html
           fields {
             slug
           }
