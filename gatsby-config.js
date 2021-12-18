@@ -5,6 +5,9 @@ module.exports = {
     description: `Publications by Ellie Cheng`,
     author: `Ellie Cheng`,
   },
+  mapping: {
+    'MarkdownRemark.frontmatter.file': 'File.base',
+  },
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
@@ -17,6 +20,12 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/files`,
       },
     },
     {

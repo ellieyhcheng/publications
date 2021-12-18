@@ -84,10 +84,6 @@
   margin: 0;
 }
 
-a:hover {
-  color: var(--primary);
-}
-
 @media only screen and (max-width: 1023px) {
   .sidebar {
     width: 100%;

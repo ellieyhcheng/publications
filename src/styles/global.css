@@ -60,3 +60,11 @@ img, svg {
   color: var(--light);
   background: black;
 }
+
+a:hover {
+  color: var(--primary);
+}
+
+.highlight {
+  text-decoration: underline;
+}
