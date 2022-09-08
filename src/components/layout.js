@@ -47,7 +47,7 @@ export default function Layout({ children, data }) {
       <div className={layoutStyles.header}>
         <div className={layoutStyles.title}>
           <h1>Publications</h1>
-          <a href="https://scholar.google.com/citations?user=U2vMTgIAAAAJ"><h2>[Google Scholar]</h2></a>
+          <a href="https://scholar.google.com/citations?user=AtJkj-UAAAAJ"><h2>[Google Scholar]</h2></a>
         </div>
       </div>
       <hr />
